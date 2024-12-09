@@ -1,19 +1,34 @@
+"use client";
+
+import { motion } from "framer-motion";
 import React from "react";
-import { BackgroundLines } from "../components/ui/background-lines.js";
+import { AuroraBackground } from "../components/ui/aurora-background.js";
 import { MovingBorderDemo } from "./moving-border.js";
 
-export function BackgroundLinesDemo() {
+export function AuroraBackgroundDemo() {
   return (
-    <BackgroundLines className="p-0 flex items-center justify-center w-full flex-col px-4 min-h-screen">
-      <h2 className="text-4xl sm:p-0 md:mt-0 sm:text-7xl bg-clip-text text-transparent text-center bg-gradient-to-b from-neutral-900 to-neutral-700 dark:from-neutral-600 dark:to-white md:text-7xl lg:text-7xl font-sans py-2 md:py-10 relative z-20 font-bold tracking-tight">
-        Afshan Kiran
-      </h2>
-      <h2 className="text-3xl dark:to-white font-mono text-center">Painter</h2>
-      <p className="max-w-xl mx-auto text-sm md:text-lg text-neutral-700 dark:text-neutral-400 text-center">
-        Get the best advices from our experts, including expert artists,
-        painters, marathon enthusiasts and RDX, totally free.
-      </p>
-      <MovingBorderDemo/>
-    </BackgroundLines>
+    <AuroraBackground>
+      <motion.div
+        initial={{ opacity: 0.0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{
+          delay: 0.3,
+          duration: 0.8,
+          ease: "easeInOut",
+        }}
+        className="relative flex flex-col gap-1 items-center justify-center px-2"
+      >
+        <div className="mt-10 text-6xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-500 via-yellow-400 to-red-500 drop-shadow-lg text-center">
+  Afshan Kiran
+</div>
+
+
+
+        <div className="text-5xl font-extralight md:text-4xl text-yellow-600 dark:text-yellow-600 py-4 drop-shadow-md">
+          Artist
+        </div>
+        <MovingBorderDemo/>
+      </motion.div>
+    </AuroraBackground>
   );
 }
